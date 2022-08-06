@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
+import 'package:shopigo/utils/routes.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -8,13 +9,14 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: Theme.of(context).backgroundColor,
       child: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 32.0, vertical: 8.0),
+                    const EdgeInsets.symmetric(horizontal: 40.0, vertical: 8.0),
                 child: Image.asset("assets/images/Mobile login-pana.png"),
               ),
               const Text(
@@ -31,27 +33,34 @@ class LoginPage extends StatelessWidget {
                   children: [
                     TextFormField(
                       decoration: const InputDecoration(
-                          hintText: "Enter user name", labelText: "User Name"),
+                        hintText: "Enter user name",
+                        labelText: "User Name",
+                      ),
                     ),
                     TextFormField(
+                      obscureText: true,
                       decoration: const InputDecoration(
-                          hintText: "Enter Password", labelText: "Password"),
+                        hintText: "Enter Password",
+                        labelText: "Password",
+                      ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15.0,
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, MyRoutes.homeRoutes);
+                },
                 style: ButtonStyle(
                     fixedSize: MaterialStateProperty.all(Size(120, 40)),
                     shape: MaterialStateProperty.all(StadiumBorder())),
                 child: Row(
-                  children: [
+                  children: const [
                     Text(
-                      "Sign In",
+                      " Sign In ",
                       style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
@@ -61,26 +70,50 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  InkWell(
-                    highlightColor: Colors.black,
-                    child: Image.asset(
-                      "assets/icons/google.png",
-                      height: 50.0,
-                      width: 50.0,
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    InkWell(
+                      onTap: (() {}),
+                      splashColor: Colors.deepOrange,
+                      borderRadius: BorderRadius.circular(15.0),
+                      child: Image.asset(
+                        "assets/icons/google.png",
+                        height: 40.0,
+                        width: 40.0,
+                      ),
                     ),
-                  ),
-                  InkWell(
-                    child: Image.asset(
-                      "assets/icons/twitter.png",
-                      height: 50.0,
-                      width: 50.0,
+                    InkWell(
+                      onTap: (() {}),
+                      splashColor: Colors.deepOrange,
+                      borderRadius: BorderRadius.circular(15.0),
+                      child: Image.asset(
+                        "assets/icons/twitter.png",
+                        height: 40.0,
+                        width: 40.0,
+                      ),
                     ),
+                  ],
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                        Theme.of(context).backgroundColor),
+                    fixedSize: MaterialStateProperty.all(Size(120, 40)),
+                    shape: MaterialStateProperty.all(StadiumBorder())),
+                child: const Text(
+                  " Sign Up ",
+                  style: TextStyle(
+                    color: Colors.deepOrange,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
                   ),
-                ],
-              )
+                ),
+              ),
             ],
           ),
         ),

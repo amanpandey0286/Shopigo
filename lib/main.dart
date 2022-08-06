@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:shopigo/pages/home_page.dart';
 import 'package:shopigo/pages/login_page.dart';
+import 'package:shopigo/utils/routes.dart';
+
+import 'utils/mytheme.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,8 +15,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginPage(),
-      theme: ThemeData(primarySwatch: Colors.deepOrange),
+      themeMode: ThemeMode.system,
+      theme: MyTheme.lightTheme(context),
+      darkTheme: MyTheme.darkTheme(context),
+      debugShowCheckedModeBanner: false,
+      initialRoute: MyRoutes.loginRoutes,
+      routes: {
+        MyRoutes.homeRoutes: (context) => HomePage(),
+        MyRoutes.loginRoutes: (context) => LoginPage(),
+      },
     );
   }
 }
