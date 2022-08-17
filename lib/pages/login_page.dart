@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:shopigo/utils/routes.dart';
 
+import '../utils/button.dart';
+
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -17,7 +19,7 @@ class LoginPage extends StatelessWidget {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 40.0, vertical: 8.0),
-                child: Image.asset("assets/images/Mobile login-pana.png"),
+                child: Image.asset("assets/images/Credit Card Payment.gif"),
               ),
               const Text(
                 "Welcome Back",
@@ -98,22 +100,7 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
               ),
-              ElevatedButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(
-                        Theme.of(context).backgroundColor),
-                    fixedSize: MaterialStateProperty.all(Size(120, 40)),
-                    shape: MaterialStateProperty.all(StadiumBorder())),
-                child: const Text(
-                  " Sign Up ",
-                  style: TextStyle(
-                    color: Colors.deepOrange,
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
+              Button(),
             ],
           ),
         ),

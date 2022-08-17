@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopigo/pages/home_page.dart';
 import 'package:shopigo/pages/login_page.dart';
+import 'package:shopigo/pages/signup_page.dart';
 import 'package:shopigo/utils/routes.dart';
 
 import 'utils/mytheme.dart';
@@ -17,12 +18,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       themeMode: ThemeMode.system,
       theme: MyTheme.lightTheme(context),
-      darkTheme: MyTheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
       initialRoute: MyRoutes.loginRoutes,
       routes: {
         MyRoutes.homeRoutes: (context) => HomePage(),
         MyRoutes.loginRoutes: (context) => LoginPage(),
+        MyRoutes.signupRoutes: (context) => SignupPage(),
       },
     );
   }
