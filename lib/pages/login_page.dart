@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:shopigo/utils/routes.dart';
 
-import '../utils/button.dart';
-
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -18,7 +16,7 @@ class LoginPage extends StatelessWidget {
             children: [
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 40.0, vertical: 8.0),
+                    const EdgeInsets.symmetric(horizontal: 40.0, vertical: 0.0),
                 child: Image.asset("assets/images/Credit Card Payment.gif"),
               ),
               const Text(
@@ -68,18 +66,27 @@ class LoginPage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Icon(CupertinoIcons.arrow_right),
+                    Flexible(
+                      flex: 1,
+                      child: Icon(CupertinoIcons.arrow_right),
+                    ),
                   ],
                 ),
               ),
+              SizedBox(height: 10.0),
+              Text(
+                "Or Sign In using",
+                style: TextStyle(fontSize: 13.0),
+              ),
               Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     InkWell(
                       onTap: (() {}),
-                      splashColor: Colors.deepOrange,
+                      splashColor: Color(0xff5bd407),
                       borderRadius: BorderRadius.circular(15.0),
                       child: Image.asset(
                         "assets/icons/google.png",
@@ -89,7 +96,7 @@ class LoginPage extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: (() {}),
-                      splashColor: Colors.deepOrange,
+                      splashColor: Color(0xff5bd407),
                       borderRadius: BorderRadius.circular(15.0),
                       child: Image.asset(
                         "assets/icons/twitter.png",
@@ -100,7 +107,18 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
               ),
-              Button(),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, MyRoutes.signupRoutes);
+                },
+                child: const Text(
+                  "Sign Up",
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      color: Color(0xff5bd407),
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
             ],
           ),
         ),

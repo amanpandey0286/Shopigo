@@ -18,10 +18,10 @@ class SignupPage extends StatelessWidget {
                   const EdgeInsets.symmetric(horizontal: 40.0, vertical: 0.0),
               child: Image.asset("assets/images/Credit Card Payment.gif"),
             ),
-            Text(
+            const Text(
               "Welcome To Shopigo",
               style: TextStyle(
-                fontSize: 18.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -31,15 +31,15 @@ class SignupPage extends StatelessWidget {
               child: Column(
                 children: [
                   TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         hintText: "Enter Name", labelText: "Name"),
                   ),
                   TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         hintText: "Enter Email ID", labelText: "Email ID"),
                   ),
                   TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         hintText: "Enter Password", labelText: "Password"),
                   ),
                 ],
@@ -47,29 +47,31 @@ class SignupPage extends StatelessWidget {
             ),
             SizedBox(height: 20.0),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, MyRoutes.homeRoutes);
+              },
               style: ButtonStyle(
                   shape: MaterialStateProperty.all(StadiumBorder()),
                   fixedSize: MaterialStateProperty.all(Size(120, 40))),
-              child: Row(
-                children: [
-                  Text(
-                    "Sign Up ",
-                    style: TextStyle(fontSize: 20.0),
-                  ),
-                  Icon(CupertinoIcons.arrow_right)
-                ],
+              child: Flexible(
+                child: Row(
+                  children: const [
+                    Text(
+                      "Sign Up ",
+                      style: TextStyle(
+                          fontSize: 20.0, fontWeight: FontWeight.bold),
+                    ),
+                    Icon(CupertinoIcons.arrow_right)
+                  ],
+                ),
               ),
             ),
-            SizedBox(height: 30.0),
-            ElevatedButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                      Theme.of(context).backgroundColor),
-                  shape: MaterialStateProperty.all(StadiumBorder()),
-                  fixedSize: MaterialStateProperty.all(Size(100, 40))),
-              child: Text(
+            const SizedBox(height: 30.0),
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, MyRoutes.loginRoutes);
+              },
+              child: const Text(
                 "Sign In ",
                 style: TextStyle(
                     fontSize: 20.0,
